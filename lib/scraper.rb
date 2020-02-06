@@ -1,0 +1,5 @@
+class Vedabase::Scraper
+
+
+
+end 
