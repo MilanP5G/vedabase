@@ -1,18 +1,14 @@
 class Vedabase::CLI
 
   def ready
-   list_books
+   menu
    choice
   end
 
-  def list_books
+  def menu
     puts "Welcome to the Vedabase! An introduction into a few of Śrīla Prabhupāda's most popular books!"
-    puts <<-DOC
-      1. Bhagavad-Gītā
-      2. Śrīmad-Bhāgavatam
-      3. Śrī Caitanya-Caritāmṛta
-      DOC
-    end
+    list_books
+  end
 
     def choice
       input = nil
@@ -28,8 +24,17 @@ class Vedabase::CLI
           puts "Introduction to Śrī Caitanya-Caritāmṛta"
         when "exit"
           thank_you
+        else try_again
         end
       end
+    end
+
+    def list_books
+      Vedabase::Vedabase.all
+    end
+
+    def try_again
+      puts "Invalid input! Please try again by inputting a number from 1 - 3."
     end
 
     def thank_you
