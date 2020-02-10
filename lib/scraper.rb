@@ -1,17 +1,42 @@
-require_relative './vedabase.rb'
+# require_relative './vedabase.rb'
 
 class Vedabase::Scraper
 
-def self.scrape_book
-  doc = Nokogiri::HTML(open("https://vedabase.io/en/"))
+  def self.scrape_title
 
-    books = doc.css("div.mm-0")
+    doc = Nokogiri::HTML(open("https://vedabase.io/en/library/"))
 
-    books.each do | book |
-      title = book.css("h1").text.strip
-      introduction = book.css("div.col-12").text
-    end
+      books = doc.css("div.col-6.col-sm-3.col-md-2.col-lg-2.text-center.book-item")
+
+      books.each do | book |
+        title = book.search("a.book-title.href").text.strip
+      end
 
   end
+
+  def self.scrape_bg
+
+    doc = Nokogiri::HTML(open("https://vedabase.io/en/library/bg/introduction/"))
+
+      intro = doc.css("div.rich-text").text.strip
+
+  end
+
+  def self.scrape_sb
+
+    doc = Nokogiri::HTML(open("https://vedabase.io/en/library/sb/1/introduction/"))
+
+      intro = doc.css("div.rich-text").text.strip
+
+  end
+
+  def self.scrape_cc
+
+    doc = Nokogiri::HTML(open("https://vedabase.io/en/library/cc/adi/introduction/"))
+
+      intro = doc.css("div.rich-text").text.strip
+
+  end
+
 
 end

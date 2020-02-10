@@ -1,6 +1,7 @@
 require_relative "./vedabase/version"
-require 'pry'
+require 'open-uri'
 require 'nokogiri'
+require 'pry'
 require_relative './cli'
 require_relative './vedabase'
 require_relative './scraper'
