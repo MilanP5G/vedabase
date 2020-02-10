@@ -4,14 +4,16 @@ class Vedabase::Scraper
 
   def self.scrape_title
 
+    titles = []
+
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/"))
 
       books = doc.css("div.col-6.col-sm-3.col-md-2.col-lg-2.text-center.book-item")
 
-      books.each do | book |
-        title = book.search("a.book-title.href").text.strip
-      end
-
+      # books.each do | book |
+       titles << books.css("a.book-title").text.strip
+      # end
+    # binding.pry
   end
 
   def self.scrape_bg

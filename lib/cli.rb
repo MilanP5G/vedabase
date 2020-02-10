@@ -6,7 +6,7 @@ class Vedabase::CLI
   end
 
   def menu
-    puts "Welcome to the Vedabase! An introduction into Śrīla Prabhupāda's most popular books!"
+    puts "Welcome to the Vedabase! An introduction into a few of Śrīla Prabhupāda's most popular books!"
     list_books
   end
 
@@ -33,6 +33,7 @@ class Vedabase::CLI
       @books = Vedabase::Scraper.scrape_title
       @books.each.with_index(1) do |book, i|
       puts "#{i}. #{book}"
+
      end
     end
 
