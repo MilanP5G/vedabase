@@ -10,9 +10,9 @@ class Vedabase::Scraper
 
       books = doc.css("div.col-6.col-sm-3.col-md-2.col-lg-2.text-center.book-item")
 
-      # books.each do | book |
-       titles << books.css("a.book-title").text.strip
-      # end
+      books.map do | book |
+        title = book.css("a.book-title").text.gsub(/^\s*/, '')
+      end
     # binding.pry
   end
 
@@ -20,7 +20,7 @@ class Vedabase::Scraper
 
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/bg/introduction/"))
 
-      intro = doc.css("div.rich-text").text.strip
+      intro = doc.css("div.rich-text").text
 
   end
 
@@ -28,7 +28,7 @@ class Vedabase::Scraper
 
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/sb/1/introduction/"))
 
-      intro = doc.css("div.rich-text").text.strip
+      intro = doc.css("div.rich-text").text
 
   end
 
@@ -36,7 +36,7 @@ class Vedabase::Scraper
 
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/cc/adi/introduction/"))
 
-      intro = doc.css("div.rich-text").text.strip
+      intro = doc.css("div.rich-text").text
 
   end
 

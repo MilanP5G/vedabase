@@ -17,11 +17,11 @@ class Vedabase::CLI
         input = gets.strip
         case input.downcase
         when "1"
-          puts Vedabase::Vedabase.bg_introduction
+          puts Vedabase::Scraper.scrape_bg
         when "2"
-          puts Vedabase::Vedabase.sb_introduction
+          puts Vedabase::Scraper.scrape_sb
         when "3"
-          puts Vedabase::Vedabase.cc_introduction
+          puts Vedabase::Scraper.scrape_cc
         when "exit"
           thank_you
         else try_again
@@ -31,14 +31,14 @@ class Vedabase::CLI
 
     def list_books
       @books = Vedabase::Scraper.scrape_title
-      @books.each.with_index(1) do |book, i|
-      puts "#{i}. #{book}"
-
+      @books.each.with_index do |book, i|
+        puts "#{i}. #{book}"
      end
     end
 
     def try_again
-      puts "Invalid input! Please try again by inputting a number from 1 - 3."
+      puts "Invalid input!"
+      puts "Please try again by inputting a number from 1 - 3 or type 'exit' to leave."
     end
 
     def thank_you
