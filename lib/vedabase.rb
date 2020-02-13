@@ -9,9 +9,26 @@ class Vedabase::Vedabase
   end
 
   def self.all
-    Vedabase::Scraper.scrape_title
     @@all
   end
+
+  # def title
+  #   Vedabase::Scraper.scrape_title.each do | title |
+  #     @@all << title
+  #   end
+  # end
+
+
+
+
+  # def self.books
+  #   @@all << Vedabase::Scraper.scrape_title
+  # end
+
+  # def self.get_book_by_title(title)
+  #   self.all.detect { | book | book.title == title }
+  # end
+
 
   # def self.bg_introduction
   #   Vedabase::Scraper.scrape_bg

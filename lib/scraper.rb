@@ -2,25 +2,26 @@
 
 class Vedabase::Scraper
 
-  def self.scrape_title
 
-    titles = []
+  def self.scrape_title
 
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/"))
 
       books = doc.css("div.col-6.col-sm-3.col-md-2.col-lg-2.text-center.book-item")
 
-      books.map do | book |
-        title = book.css("a.book-title").text.gsub(/^\s*/, '')
-      end
-    # binding.pry
+        books.map do | book |
+         title = book.css("a.book-title").text.strip
+        end
+
   end
+ # binding.pry
+
 
   def self.scrape_bg
 
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/bg/introduction/"))
 
-      intro = doc.css("div.rich-text").text
+      intro = doc.css("div.rich-text").text.strip
 
   end
 
