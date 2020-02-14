@@ -1,24 +1,31 @@
 class Vedabase::CLI
-  attr_accessor :books
+  attr_accessor :introduction
 
   def ready
-    @books = Vedabase::Scraper.scrape_title
-    # binding.pry
-    # get_books
+   titles
    menu
    choice
   end
 
+  def titles
+      titles = Vedabase::Scraper.scrape_title
+        titles.each do | title |
+          Vedabase::Vedabase.new(title)
+      end
+  end
 
   def menu
     puts "Welcome to the Vedabase! An introduction into a few of Śrīla Prabhupāda's most popular books!"
-    list_books
+    list_titles
   end
 
-    # @books = Vedabase::Scraper.scrape_title
-    # binding.pry
-
-
+  def list_titles
+    Vedabase::Vedabase.all.each.with_index(1) do | vedabase, i |
+        puts "#{i}. #{vedabase.title}"
+        break if i == 3
+      # binding.pry
+   end
+  end
 
     def choice
       input = nil
@@ -39,17 +46,6 @@ class Vedabase::CLI
       end
     end
 
-    def list_books
-      @list = Vedabase::Vedabase.new(@books)
-      binding.pry
-      # puts @books
-        @books.each.with_index(1) do | book, i |
-          puts "#{i}. #{book}"
-          break if i == 3
-        # binding.pry
-     end
-    end
-    # binding.pry
 
     def try_again
       puts "Invalid input!"

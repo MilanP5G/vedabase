@@ -12,6 +12,8 @@ class Vedabase::Vedabase
     @@all
   end
 
+
+
   # def title
   #   Vedabase::Scraper.scrape_title.each do | title |
   #     @@all << title

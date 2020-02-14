@@ -21,7 +21,7 @@ class Vedabase::Scraper
 
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/bg/introduction/"))
 
-      intro = doc.css("div.rich-text").text.strip
+      intro = doc.css("div.rich-text").text
 
   end
 
