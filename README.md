@@ -21,7 +21,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Once you run the program, you have a choice of three books that you can read into.
+To start reading the introduction to a book, you can type in the number of that specific book.
+Once you have read the introduction of your chosen book, you have an option to return to the main menu by typing 'menu' in the terminal or leaving the program by typing 'exit'.
+If you have chosen 'menu', then you can again choose a book that you would like to read into by inputting it's respective number or leave by typing in 'exit'.
 
 ## Development
 
