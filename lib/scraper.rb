@@ -15,7 +15,6 @@ class Vedabase::Scraper
         end
 
   end
- # binding.pry
 
 
   def self.scrape_bg
@@ -26,7 +25,7 @@ class Vedabase::Scraper
       intro = doc.css("div#content.row").text.strip
 
   end
-  # binding.pry
+
 
   def self.scrape_sb
 
