@@ -1,5 +1,4 @@
 class Vedabase::CLI
-  attr_accessor :vedabase
 
 
   def ready
@@ -40,8 +39,9 @@ class Vedabase::CLI
 
 
   def menu
-    puts "Welcome to the Vedabase! An introduction into a few of Śrīla Prabhupāda's most popular books!"
+    puts "Welcome to the Vedabase! An introduction into a few of Śrīla Prabhupāda's most popular books!".cyan
     list_titles
+    puts "Enter the number of the book you would like to know more about or type 'exit' to leave:".cyan
   end
 
   def list_titles
@@ -55,15 +55,20 @@ class Vedabase::CLI
     def choice
       input = nil
       until input == "exit"
-        puts "Enter the number of the book you would like to know more about:"
+        option = "Type in 'menu' to return to the main menu or 'exit' to leave:".cyan
         input = gets.strip
         case input.downcase
         when "1"
           puts intro_bg(input.to_i)
+          puts option
         when "2"
           puts intro_sb(input.to_i)
+          puts option
         when "3"
           puts intro_cc(input.to_i)
+          puts option
+        when "menu"
+          menu
         when "exit"
           thank_you
         else try_again
@@ -73,12 +78,12 @@ class Vedabase::CLI
 
 
     def try_again
-      puts "Invalid input!"
-      puts "Please try again by inputting a number from 1 - 3 or type 'exit' to leave."
+      puts "Invalid input!".red
+      puts "Type in 'menu' to return to the main menu or 'exit' to leave:".cyan
     end
 
     def thank_you
-      puts "Thank you for your interest! For more information visit: https://krishnashopping.com/collections/books"
+      puts "Thank you for your interest! For more information visit: https://krishnashopping.com/collections/books".cyan
     end
 
 

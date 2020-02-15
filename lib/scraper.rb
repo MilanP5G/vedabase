@@ -1,4 +1,6 @@
 # require_relative './vedabase.rb'
+
+
 class Vedabase::Scraper
 
 
