@@ -1,8 +1,7 @@
 # Vedabase
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/vedabase`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to Vedabase! This gem allows you to see some of the most popular books from His Divine Grace AC Bhaktivedanta Swami Śrīla Prabhupāda - a spiritual teacher who spread the Hare Kṛṣṇa movement across the world.
+You can choose a book that you would like to know more about and have a chance to read the introduction of your chosen book.
 
 ## Installation
 
