@@ -22,7 +22,8 @@ class Vedabase::Scraper
 
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/bg/introduction/"))
 
-      intro = doc.css("div.rich-text").text
+
+      intro = doc.css("div#content.row").text.strip
 
   end
   # binding.pry
@@ -31,7 +32,7 @@ class Vedabase::Scraper
 
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/sb/1/introduction/"))
 
-      intro = doc.css("div.rich-text").text
+      intro = doc.css("div#content.row").text.strip
 
   end
 
@@ -39,7 +40,7 @@ class Vedabase::Scraper
 
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/cc/adi/introduction/"))
 
-      intro = doc.css("div.rich-text").text
+      intro = doc.css("div#content.row").text.strip
 
   end
 

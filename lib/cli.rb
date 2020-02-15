@@ -30,14 +30,6 @@ class Vedabase::CLI
   end
 
 
-  # def intros
-  #  intros = Vedabase::Scraper.scrape_bg && Vedabase::Scraper.scrape_sb && Vedabase::Scraper.scrape_cc
-  #   intros.each do | intro |
-  #     Vedabase::Vedabase.new(intro)
-  #   end
-  # end
-
-
   def menu
     puts "Welcome to the Vedabase! An introduction into a few of Śrīla Prabhupāda's most popular books!".cyan
     list_titles
