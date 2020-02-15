@@ -1,5 +1,6 @@
 class Vedabase::CLI
-  attr_accessor :introduction
+  attr_accessor :vedabase
+
 
   def ready
    titles
@@ -8,11 +9,35 @@ class Vedabase::CLI
   end
 
   def titles
-      titles = Vedabase::Scraper.scrape_title
-        titles.each do | title |
-          Vedabase::Vedabase.new(title)
-      end
+    titles = Vedabase::Scraper.scrape_title
+      titles.each do | title |
+        Vedabase::Vedabase.new(title)
+    end
   end
+
+  def intro_bg(input)
+    selected_vedabase = Vedabase::Vedabase.all[input]
+    selected_vedabase.introduction = Vedabase::Scraper.scrape_bg
+  end
+
+  def intro_sb(input)
+    selected_vedabase = Vedabase::Vedabase.all[input]
+    selected_vedabase.introduction = Vedabase::Scraper.scrape_sb
+  end
+
+  def intro_cc(input)
+    selected_vedabase = Vedabase::Vedabase.all[input]
+    selected_vedabase.introduction = Vedabase::Scraper.scrape_cc
+  end
+
+
+  # def intros
+  #  intros = Vedabase::Scraper.scrape_bg && Vedabase::Scraper.scrape_sb && Vedabase::Scraper.scrape_cc
+  #   intros.each do | intro |
+  #     Vedabase::Vedabase.new(intro)
+  #   end
+  # end
+
 
   def menu
     puts "Welcome to the Vedabase! An introduction into a few of Śrīla Prabhupāda's most popular books!"
@@ -23,9 +48,9 @@ class Vedabase::CLI
     Vedabase::Vedabase.all.each.with_index(1) do | vedabase, i |
         puts "#{i}. #{vedabase.title}"
         break if i == 3
-      # binding.pry
-   end
+    end
   end
+
 
     def choice
       input = nil
@@ -34,11 +59,11 @@ class Vedabase::CLI
         input = gets.strip
         case input.downcase
         when "1"
-          puts Vedabase::Scraper.scrape_bg
+          puts intro_bg(input.to_i)
         when "2"
-          puts Vedabase::Scraper.scrape_sb
+          puts intro_sb(input.to_i)
         when "3"
-          puts Vedabase::Scraper.scrape_cc
+          puts intro_cc(input.to_i)
         when "exit"
           thank_you
         else try_again

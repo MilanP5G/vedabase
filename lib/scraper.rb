@@ -1,5 +1,4 @@
 # require_relative './vedabase.rb'
-
 class Vedabase::Scraper
 
 
@@ -24,6 +23,7 @@ class Vedabase::Scraper
       intro = doc.css("div.rich-text").text
 
   end
+  # binding.pry
 
   def self.scrape_sb
 
