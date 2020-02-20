@@ -17,16 +17,19 @@ class Vedabase::CLI
   def intro_bg(input)
     selected_vedabase = Vedabase::Vedabase.all[input]
     selected_vedabase.introduction = Vedabase::Scraper.scrape_bg
+    selected_vedabase.introduction
   end
 
   def intro_sb(input)
     selected_vedabase = Vedabase::Vedabase.all[input]
     selected_vedabase.introduction = Vedabase::Scraper.scrape_sb
+    selected_vedabase.introduction
   end
 
   def intro_cc(input)
     selected_vedabase = Vedabase::Vedabase.all[input]
     selected_vedabase.introduction = Vedabase::Scraper.scrape_cc
+    selected_vedabase.introduction
   end
 
 
@@ -39,7 +42,6 @@ class Vedabase::CLI
   def list_titles
     Vedabase::Vedabase.all.each.with_index(1) do | vedabase, i |
         puts "#{i}. #{vedabase.title}"
-        break if i == 3
     end
   end
 
@@ -63,7 +65,8 @@ class Vedabase::CLI
           menu
         when "exit"
           thank_you
-        else try_again
+        else
+          try_again
         end
       end
     end

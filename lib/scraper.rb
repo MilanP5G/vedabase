@@ -8,8 +8,8 @@ class Vedabase::Scraper
 
     doc = Nokogiri::HTML(open("https://vedabase.io/en/library/"))
 
-      books = doc.css("div.col-6.col-sm-3.col-md-2.col-lg-2.text-center.book-item")
-
+      books = doc.css("div.col-6.col-sm-3.col-md-2.col-lg-2.text-center.book-item").slice(0, 3)
+     
         books.map do | book |
          title = book.css("a.book-title").text.strip
         end

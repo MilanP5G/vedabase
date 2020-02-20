@@ -12,5 +12,4 @@ class Vedabase::Vedabase
     @@all
   end
 
-
 end
