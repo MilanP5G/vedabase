@@ -1,10 +1,11 @@
 class Vedabase::Vedabase
-  attr_accessor :title, :introduction
+  attr_accessor :title, :introduction, :url
 
   @@all = []
 
-  def initialize(title)
+  def initialize(title, url)
     @title = title
+    @url = url
     @@all << self
   end
 

@@ -9,26 +9,11 @@ class Vedabase::CLI
 
   def titles
     titles = Vedabase::Scraper.scrape_title
-      titles.each do | title |
-        Vedabase::Vedabase.new(title)
-    end
   end
 
-  def intro_bg(input)
-    selected_vedabase = Vedabase::Vedabase.all[input]
-    selected_vedabase.introduction = Vedabase::Scraper.scrape_bg
-    selected_vedabase.introduction
-  end
-
-  def intro_sb(input)
-    selected_vedabase = Vedabase::Vedabase.all[input]
-    selected_vedabase.introduction = Vedabase::Scraper.scrape_sb
-    selected_vedabase.introduction
-  end
-
-  def intro_cc(input)
-    selected_vedabase = Vedabase::Vedabase.all[input]
-    selected_vedabase.introduction = Vedabase::Scraper.scrape_cc
+  def intro(input)
+    selected_vedabase = Vedabase::Vedabase.all[input-1]
+    selected_vedabase.introduction = Vedabase::Scraper.scrape_intro(selected_vedabase.url)
     selected_vedabase.introduction
   end
 
@@ -52,14 +37,8 @@ class Vedabase::CLI
         option = "Type in 'menu' to return to the main menu or 'exit' to leave:".cyan
         input = gets.strip
         case input.downcase
-        when "1"
-          puts intro_bg(input.to_i)
-          puts option
-        when "2"
-          puts intro_sb(input.to_i)
-          puts option
-        when "3"
-          puts intro_cc(input.to_i)
+        when "1", "2", "3"
+          puts intro(input.to_i)
           puts option
         when "menu"
           menu
